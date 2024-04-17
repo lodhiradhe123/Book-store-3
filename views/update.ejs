@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <%- include("./partials/nav") %>
+    <form action="/update/<%= book._id %>" method="post">
+      <label for="bookname">bookname</label>
+      <input
+        value="<%= book.bookname %>"
+        type="text"
+        name="bookname"
+        id=""
+        placeholder="enter-bookname"
+      />
+      <label for="bookname">title</label>
+      <input
+        value="<%= book.title %>"
+        type="text"
+        name="title"
+        id=""
+        placeholder="enter-title"
+      />
+      <label for="bookname">price</label>
+      <input
+        value="<%= book.price %>"
+        type="number"
+        name="price"
+        id=""
+        placeholder="enter-price"
+      />
+      <label for="bookname">discription</label>
+      <textarea
+        value="<%= book.bookname %>"
+        name="discription"
+        id=""
+        cols="30"
+        rows="10"
+      ></textarea>
+      <input type="submit" name="" id="" />
+    </form>
+  </body>
+</html>
