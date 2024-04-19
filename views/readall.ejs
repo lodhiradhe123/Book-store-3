@@ -11,20 +11,28 @@
       crossorigin="anonymous"
     />
   </head>
-  <body>
+  <body style="background-color: rgb(157, 157, 225)">
     <%- include("./partials/nav") %>
 
-    <ul>
-      <li>
-        <% book.forEach((book,index)=>{ %>
-        <h3><%= book.bookname %></h3>
-        <h3><%= book.title %></h3>
-        <h3 style="color: rgb(105, 105, 6)"><%= book.price %></h3>
-        <h3 style="color: royalblue"><%= book.discription %></h3>
-      </li>
-    </ul>
-    <a href="/delete/<%=  book._id %>"><button>delete</button></a>
-    <a href="/update/<%= book._id %>"><button>Update</button></a>
-    <% })%>
+    <div class="d-flex gap-4">
+      <% book.forEach((book,index)=>{ %>
+      <div class="card gap-4" style="width: 18rem">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><h3><%= book.bookname %></h3></li>
+          <li class="list-group-item"><h3><%= book.title %></h3></li>
+          <li class="list-group-item">
+            <h3 style="color: rgb(105, 105, 6)"><%= book.price %></h3>
+          </li>
+          <li class="list-group-item">
+            <h3 style="color: royalblue"><%= book.discription %></h3>
+          </li>
+          <div class="d-flex gap-4">
+            <a href="/delete/<%=  book._id %>"><button>delete</button></a>
+            <a href="/update/<%= book._id %>"><button>Update</button></a>
+          </div>
+        </ul>
+      </div>
+      <% })%>
+    </div>
   </body>
 </html>
