@@ -1,6 +1,8 @@
 var express = require("express");
 var router = express.Router();
 
+const upload = require("../utils/multer").single("img");
+
 const books = require("../models/bookmodel");
 
 // const BOOK = [];
@@ -12,17 +14,19 @@ router.get("/", function (req, res, next) {
 router.get("/create", function (req, res, next) {
   res.render("create");
 });
-router.post("/data", async function (req, res, next) {
+router.post("/data", upload, async function (req, res, next) {
   // const data = req.body;
   // BOOK.push(data);
   // books.create(req.body).then((data) => {
   //   res.redirect("/readall");
   // });
   // res.redirect("/readall");
+
   try {
-    const newbook = new books(req.body);
-    await newbook.save();
-    res.redirect("/readall");
+    res.json({ body: req.body, file: req.file });
+    // const newbook = new books(req.body);
+    // await newbook.save();
+    // res.redirect("/readall");
   } catch (error) {
     res.send(error);
   }

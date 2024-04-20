@@ -15,7 +15,9 @@
   <body>
     <%- include("./partials/nav") %>
 
-    <form action="/data" method="post">
+    <form action="/data" method="post" enctype="multipart/form-data">
+      <input class="text-light" type="file" name="img" id="" />
+
       <label class="text-light fs-3 text" for="bookname">bookname</label>
       <input type="text" name="bookname" id="" placeholder="enter-bookname" />
       <label class="text-light fs-3 text" for="bookname">title</label>
@@ -23,7 +25,7 @@
       <label class="text-light fs-3 text" for="bookname">price</label>
       <input type="number" name="price" id="" placeholder="enter-price" />
       <label class="text-light fs-3 text" for="bookname">discription</label>
-      <textarea name="discription" id="" cols="30" rows="10"></textarea>
+      <textarea name="discription" id="" cols="30" rows="2"></textarea>
       <input type="submit" name="" id="" />
     </form>
   </body>
